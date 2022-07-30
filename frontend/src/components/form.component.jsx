@@ -1,8 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { LoginLabel, FormContainer, LoginInput } from './form.component.style';
+import {
+  LoginLabel,
+  FormContainer,
+  LoginInput,
+  ErrorFeedBack,
+} from './form.component.style';
 
-export default function Form({ onSubmit }) {
+export default function Form({ onSubmit, loginError }) {
   const {
     register,
     formState: { errors },
@@ -24,7 +29,9 @@ export default function Form({ onSubmit }) {
           type="email"
           id="email"
         />
-        <p>{errors.email?.message || <span>&nbsp;</span>}</p>
+        <ErrorFeedBack>
+          {errors.email?.message || <span>&nbsp;</span>}
+        </ErrorFeedBack>
       </LoginLabel>
       <LoginLabel htmlFor="password">
         Password
@@ -33,9 +40,17 @@ export default function Form({ onSubmit }) {
           type="password"
           id="password"
         />
-        <p>{errors.password?.message || <span>&nbsp;</span>}</p>
+        <ErrorFeedBack>
+          {errors.password?.message || <span>&nbsp;</span>}
+        </ErrorFeedBack>
+        <ErrorFeedBack>
+          {loginError ? (
+            'email and/or password is invalid'
+          ) : (
+            <span>&nbsp;</span>
+          )}
+        </ErrorFeedBack>
       </LoginLabel>
-      <span>&nbsp;</span>
       <button type="submit">Login</button>
     </FormContainer>
   );
