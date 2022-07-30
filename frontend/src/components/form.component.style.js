@@ -8,7 +8,6 @@ export const FormContainer = styled.form`
   box-shadow: #00000059 0 5px 15px;
   height: 100%;
   margin-top: 10px;
-  max-width: 30rem;
   min-height: 200px;
   min-width: 200px;
   padding: 25px;
