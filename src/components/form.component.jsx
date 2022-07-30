@@ -11,7 +11,7 @@ export default function Form({ onSubmit }) {
 
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
-      <LoginLabel htmlFor="email" error={errors.email}>
+      <LoginLabel htmlFor="email">
         Email
         <LoginInput
           {...register('email', {
@@ -27,7 +27,7 @@ export default function Form({ onSubmit }) {
         {errors.email?.type === 'required' && <p>email is required</p>}
         {errors.email?.type === 'pattern' && <p>insert a valid email</p>}
       </LoginLabel>
-      <LoginLabel htmlFor="password" error={errors.password}>
+      <LoginLabel htmlFor="password">
         Password
         <LoginInput
           {...register('password', { required: true })}
