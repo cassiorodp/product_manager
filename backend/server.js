@@ -22,7 +22,7 @@ server.post('/auth/login', (req, res) => {
   return res.status(200).json({ accessToken });
 });
 
-server.use(/^(?!\/auth).*$/, (req, res, next) => {
+server.use(/^(?!.*\/auth|.*\/users).*$/, (req, res, next) => {
   if (!req.headers.authorization) {
     const status = 401;
     const message = 'Bad authorization header';
