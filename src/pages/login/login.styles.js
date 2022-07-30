@@ -20,7 +20,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #c2c2c2c2;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: #00000059 0 5px 15px;
   height: 100%;
   margin-top: 10px;
@@ -35,6 +35,8 @@ export const Form = styled.form`
     background-color: ${(props) => props.theme.colors.colorPrimary};
     cursor: pointer;
     padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: inherit;
   }
 `;
 
