@@ -1,0 +1,204 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Pizza",
+      "fabDate": "2021-08-16T02:14:12.879Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "119.00"
+    },
+    {
+      "id": 2,
+      "name": "Bacon",
+      "fabDate": "2021-10-21T07:05:41.679Z",
+      "expDate": "2021-12-05T12:57:04.849Z",
+      "perishable": true,
+      "price": "856.00"
+    },
+    {
+      "id": 3,
+      "name": "Chips",
+      "fabDate": "2021-09-28T06:09:48.027Z",
+      "expDate": "2021-10-26T11:51:08.907Z",
+      "perishable": true,
+      "price": "558.00"
+    },
+    {
+      "id": 4,
+      "name": "Vodka",
+      "fabDate": "2021-10-10T11:59:15.815Z",
+      "expDate": "2021-10-17T13:01:00.769Z",
+      "perishable": true,
+      "price": "236.00"
+    },
+    {
+      "id": 5,
+      "name": "Table",
+      "fabDate": "2021-06-30T05:36:51.890Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "416.00"
+    },
+    {
+      "id": 6,
+      "name": "Shoes",
+      "fabDate": "2021-12-01T09:09:32.151Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "135.00"
+    },
+    {
+      "id": 7,
+      "name": "Shirt",
+      "fabDate": "2021-10-28T19:28:26.242Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "209.00"
+    },
+    {
+      "id": 8,
+      "name": "Meat",
+      "fabDate": "2021-02-28T22:57:07.285Z",
+      "expDate": "2021-03-09T08:52:20.645Z",
+      "perishable": true,
+      "price": "637.00"
+    },
+    {
+      "id": 9,
+      "name": "Fish",
+      "fabDate": "2021-05-01T07:47:08.305Z",
+      "expDate": "2021-05-25T21:00:59.065Z",
+      "perishable": true,
+      "price": "444.00"
+    },
+    {
+      "id": 10,
+      "name": "Bread",
+      "fabDate": "2021-08-16T19:10:08.929Z",
+      "expDate": "2021-08-24T09:39:41.319Z",
+      "perishable": true,
+      "price": "368.00"
+    },
+    {
+      "id": 11,
+      "name": "Picles",
+      "fabDate": "2021-11-07T16:46:10.723Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "871.00"
+    },
+    {
+      "id": 12,
+      "name": "Soap",
+      "fabDate": "2021-09-28T20:41:29.769Z",
+      "expDate": "2021-11-16T05:30:06.023Z",
+      "perishable": true,
+      "price": "492.00"
+    },
+    {
+      "id": 13,
+      "name": "Shirt",
+      "fabDate": "2021-06-13T10:42:43.160Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "176.00"
+    },
+    {
+      "id": 14,
+      "name": "Salmon",
+      "fabDate": "2021-12-05T07:22:22.402Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "974.00"
+    },
+    {
+      "id": 15,
+      "name": "Shoes",
+      "fabDate": "2021-07-23T19:16:55.056Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "816.00"
+    },
+    {
+      "id": 16,
+      "name": "Salt",
+      "fabDate": "2021-10-07T20:56:01.666Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "985.00"
+    },
+    {
+      "id": 17,
+      "name": "Shoes",
+      "fabDate": "2021-02-27T08:33:04.721Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "106.00"
+    },
+    {
+      "id": 18,
+      "name": "Rice",
+      "fabDate": "2021-04-03T01:43:56.478Z",
+      "expDate": "2021-04-07T00:58:26.678Z",
+      "perishable": true,
+      "price": "242.00"
+    },
+    {
+      "id": 19,
+      "name": "Beans",
+      "fabDate": "2021-07-03T09:41:58.696Z",
+      "expDate": "2021-07-07T16:04:36.629Z",
+      "perishable": true,
+      "price": "717.00"
+    },
+    {
+      "id": 20,
+      "name": "Pig Meat",
+      "fabDate": "2021-03-24T22:30:34.829Z",
+      "expDate": "2021-05-25T05:41:18.138Z",
+      "perishable": true,
+      "price": "188.00"
+    },
+    {
+      "id": 21,
+      "name": "Sausages",
+      "fabDate": "2021-05-19T14:26:14.515Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "777.00"
+    },
+    {
+      "id": 22,
+      "name": "Keyboard",
+      "fabDate": "2021-03-14T04:55:15.903Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "525.00"
+    },
+    {
+      "id": 23,
+      "name": "Cheese",
+      "fabDate": "2021-05-12T01:03:16.294Z",
+      "expDate": "2021-06-12T02:41:05.389Z",
+      "perishable": true,
+      "price": "9.00"
+    },
+    {
+      "id": 24,
+      "name": "Milk",
+      "fabDate": "2021-10-06T16:34:36.140Z",
+      "expDate": "2021-10-10T03:48:44.538Z",
+      "perishable": true,
+      "price": "577.00"
+    },
+    {
+      "id": 25,
+      "name": "Mouse",
+      "fabDate": "2021-06-26T10:52:17.582Z",
+      "expDate": "",
+      "perishable": false,
+      "price": "160.00"
+    }
+  ]
+}
