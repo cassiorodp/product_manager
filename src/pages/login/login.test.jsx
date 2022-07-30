@@ -13,5 +13,19 @@ describe('Login page', () => {
 
     expect(loginHeading).toBeInTheDocument();
     expect(loginImage).toBeInTheDocument();
+    expect(emailInput).toBeInTheDocument();
+    expect(passwordInput).toBeInTheDocument();
+  });
+
+  it('should have working inputs', async () => {
+    const { user } = render(<Login />);
+    const emailInput = screen.getByLabelText(/email/i);
+    const passwordInput = screen.getByLabelText(/password/i);
+
+    await user.type(emailInput, 'user@mail.com');
+    await user.type(passwordInput, 'secretpassword');
+
+    expect(emailInput).toHaveValue('user@mail.com');
+    expect(passwordInput).toHaveValue('secretpassword');
   });
 });
