@@ -35,9 +35,7 @@ export const LoginLabel = styled.label`
   margin-bottom: 1.5rem;
 
   p {
-    transition: all .5s;
     color: ${(props) => props.theme.colors.colorError};
-    opacity: ${(props) => (props.error ? 1 : 0)}
   }
 `;
 

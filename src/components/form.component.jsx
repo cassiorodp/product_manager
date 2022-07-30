@@ -34,7 +34,7 @@ export default function Form({ onSubmit }) {
           type="password"
           id="password"
         />
-        <p>password is required</p>
+        {errors.password?.type === 'required' && <p>password is required</p>}
       </LoginLabel>
       <button type="submit">Login</button>
     </FormContainer>
