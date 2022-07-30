@@ -15,7 +15,7 @@ export default function Form({ onSubmit }) {
         Email
         <LoginInput
           {...register('email', {
-            required: true,
+            required: 'email is required',
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               message: 'invalid email address',
@@ -24,18 +24,18 @@ export default function Form({ onSubmit }) {
           type="email"
           id="email"
         />
-        {errors.email?.type === 'required' && <p>email is required</p>}
-        {errors.email?.type === 'pattern' && <p>insert a valid email</p>}
+        <p>{errors.email?.message || <span>&nbsp;</span>}</p>
       </LoginLabel>
       <LoginLabel htmlFor="password">
         Password
         <LoginInput
-          {...register('password', { required: true })}
+          {...register('password', { required: 'password is required' })}
           type="password"
           id="password"
         />
-        {errors.password?.type === 'required' && <p>password is required</p>}
+        <p>{errors.password?.message || <span>&nbsp;</span>}</p>
       </LoginLabel>
+      <span>&nbsp;</span>
       <button type="submit">Login</button>
     </FormContainer>
   );
