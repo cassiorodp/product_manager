@@ -6,7 +6,7 @@ const SECRET_KEY = '123456789';
 const expiresIn = '1h';
 
 const userdb = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, '../data/users.json'), 'UTF-8')
+  fs.readFileSync(path.resolve(__dirname, '../data/db.json'), 'UTF-8')
 );
 
 function createToken(payload) {

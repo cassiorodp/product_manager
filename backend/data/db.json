@@ -1,4 +1,12 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@email.com",
+      "password": "admin123"
+    }
+  ],
   "products": [
     {
       "id": 1,
