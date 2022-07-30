@@ -8,16 +8,24 @@ export default function Form({ onSubmit }) {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
       <LoginLabel htmlFor="email" error={errors.email}>
         Email
         <LoginInput
-          {...register('email', { required: true })}
+          {...register('email', {
+            required: true,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'invalid email address',
+            },
+          })}
           type="email"
           id="email"
         />
-        <p>email is required</p>
+        {errors.email?.type === 'required' && <p>email is required</p>}
+        {errors.email?.type === 'pattern' && <p>insert a valid email</p>}
       </LoginLabel>
       <LoginLabel htmlFor="password" error={errors.password}>
         Password

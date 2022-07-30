@@ -32,7 +32,7 @@ export const FormContainer = styled.form`
 export const LoginLabel = styled.label`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 
   p {
     transition: all .5s;
