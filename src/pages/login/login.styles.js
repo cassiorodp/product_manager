@@ -37,6 +37,11 @@ export const Form = styled.form`
     padding: 1rem 2rem;
     border-radius: 8px;
     font-size: inherit;
+    transition: all .5s
+  }
+
+  button:hover {
+    background-color: ${(props) => props.theme.colors.colorPrimaryDark};
   }
 `;
 
