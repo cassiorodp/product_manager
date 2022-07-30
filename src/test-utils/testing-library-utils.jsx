@@ -1,16 +1,20 @@
-import { render } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
 import React from 'react';
+import { render as rtlRender } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { ThemeProvider } from 'styled-components';
 import theme from '../theme';
 
-function Wrapper({ children }) {
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-}
-
-const renderWithContext = (ui, options) => render(ui, { wrapper: Wrapper, ...options });
+const render = (ui, options) => {
+  function Wrapper({ children }) {
+    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  }
+  return {
+    user: userEvent.setup(),
+    ...rtlRender(ui, { wrapper: Wrapper, options }),
+  };
+};
 
 // re-export everything
 export * from '@testing-library/react';
-
 // override render method
-export { renderWithContext as render };
+export { render };
