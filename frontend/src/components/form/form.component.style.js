@@ -20,7 +20,7 @@ export const FormContainer = styled.form`
     padding: 1rem 2rem;
     border-radius: 8px;
     font-size: inherit;
-    transition: all .5s
+    transition: all 0.5s;
   }
 
   button:hover {
@@ -32,10 +32,6 @@ export const LoginLabel = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
-
-  p {
-    color: ${(props) => props.theme.colors.colorError};
-  }
 `;
 
 export const LoginInput = styled.input`
@@ -45,4 +41,8 @@ export const LoginInput = styled.input`
   margin-bottom: 1.5rem;
   margin-top: 1rem;
   padding: 1.5rem 2rem;
+`;
+
+export const ErrorFeedBack = styled.p`
+  color: ${(props) => props.theme.colors.colorError};
 `;

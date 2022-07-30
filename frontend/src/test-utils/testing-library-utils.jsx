@@ -2,11 +2,16 @@ import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'styled-components';
+import { MemoryRouter } from 'react-router-dom';
 import theme from '../theme';
 
 const render = (ui, options) => {
   function Wrapper({ children }) {
-    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+    return (
+      <MemoryRouter>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      </MemoryRouter>
+    );
   }
   return {
     user: userEvent.setup(),
