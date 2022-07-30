@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '../../test-utils/testing-library-utils';
-import Login from './Login';
+import Login from './Login.page';
 
 describe('Login page', () => {
   it('should render all components', () => {
