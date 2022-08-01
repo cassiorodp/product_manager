@@ -1,11 +1,16 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
+import { getProductsPerPage } from '../async_actions/productActions';
 
 const initialState = {
   products: [],
-  page: 0,
+  page: 1,
   formState: false,
   userAction: '',
+  totalCount: 0,
+  lastPage: 0,
+  limit: 10,
+  loadingProducts: false,
 };
 
 export const productSlice = createSlice({
@@ -21,6 +26,20 @@ export const productSlice = createSlice({
     changeUserAction: (state, action) => {
       state.userAction = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getProductsPerPage.fulfilled, (state, action) => {
+      const { data, totalCount } = action.payload;
+      state.products = data;
+      state.totalCount = totalCount;
+      state.lastPage = Math.ceil((totalCount / state.limit));
+    });
+    builder.addCase(getProductsPerPage.pending, (state) => {
+      state.loadingProducts = true;
+    });
+    builder.addCase(getProductsPerPage.rejected, (state) => {
+      state.loadingProducts = false;
+    });
   },
 });
 
