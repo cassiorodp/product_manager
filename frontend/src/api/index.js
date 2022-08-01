@@ -42,8 +42,22 @@ const postProduct = async (productJson) => {
   }
 };
 
+const deleteProduct = async (productId) => {
+  try {
+    const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+    const response = await axios.delete(`${BASE_URL}/products/${productId}`, {
+      headers: { authorization: accessToken },
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
 export default {
   postLogin,
   getProducts,
   postProduct,
+  deleteProduct,
 };
