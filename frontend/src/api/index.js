@@ -42,6 +42,19 @@ const postProduct = async (productJson) => {
   }
 };
 
+const updateProduct = async (productId, productAttrs) => {
+  try {
+    const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+    const response = await axios.put(`${BASE_URL}/products${productId}`, productAttrs, {
+      headers: { authorization: accessToken },
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
 const deleteProduct = async (productId) => {
   try {
     const accessToken = JSON.parse(localStorage.getItem('accessToken'));
@@ -59,5 +72,6 @@ export default {
   postLogin,
   getProducts,
   postProduct,
+  updateProduct,
   deleteProduct,
 };
