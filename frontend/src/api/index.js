@@ -12,11 +12,11 @@ const postLogin = async (data) => {
   }
 };
 
-const getProducts = async (page, sortParam) => {
+const getProducts = async (page, sortParam, orderParam) => {
   try {
     const accessToken = JSON.parse(localStorage.getItem('accessToken'));
     const response = await axios.get(
-      `${BASE_URL}/products?_page=${page}&_sort=${sortParam}`,
+      `${BASE_URL}/products?_page=${page}&_sort=${sortParam}&_order${orderParam}`,
       { headers: { authorization: accessToken } },
     );
     return {
