@@ -32,6 +32,9 @@ export const productSlice = createSlice({
     changeUserAction: (state, action) => {
       state.userAction = action.payload;
     },
+    changeSortParam: (state, action) => {
+      state.sortParam = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getProductsPerPage.fulfilled, (state, action) => {
