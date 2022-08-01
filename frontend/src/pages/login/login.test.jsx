@@ -33,7 +33,7 @@ describe('Login page', () => {
 
   it('should set an error message when login fails', async () => {
     const { user } = render(<Login />);
-    const apiSpy = jest.spyOn(api, 'postLogin').mockResolvedValue(false);
+    const apiSpy = jest.spyOn(api, 'postLogin').mockImplementation(() => { throw new Error(); });
     const emailInput = screen.getByLabelText(/email/i);
     const passwordInput = screen.getByLabelText(/password/i);
 
