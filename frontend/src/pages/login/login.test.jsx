@@ -54,7 +54,7 @@ describe('Login page', () => {
 
   it('should go to main page when login succeds', async () => {
     const { user } = render(<Login />);
-    const apiSpy = jest.spyOn(api, 'postLogin').mockResolvedValue('fakeToken');
+    const apiSpy = jest.spyOn(api, 'postLogin');
     const localStorageSpy = jest.spyOn(Storage.prototype, 'setItem');
 
     const emailInput = screen.getByLabelText(/email/i);
