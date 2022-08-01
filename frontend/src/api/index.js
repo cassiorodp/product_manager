@@ -8,7 +8,7 @@ const postLogin = async (data) => {
     return response.data.accessToken;
   } catch (error) {
     console.log(error);
-    return null;
+    throw new Error('not valid login');
   }
 };
 
@@ -25,7 +25,7 @@ const getProducts = async (page, sortParam, orderParam) => {
     };
   } catch (error) {
     console.log(error);
-    return null;
+    throw new Error('getProducts has failed');
   }
 };
 

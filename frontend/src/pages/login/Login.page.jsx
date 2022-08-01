@@ -9,11 +9,12 @@ export default function Login() {
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState(false);
   const onSubmit = async (data) => {
-    const accessToken = await api.postLogin(data);
-    if (!accessToken) setLoginError(true);
-    else {
+    try {
+      const accessToken = await api.postLogin(data);
       localStorage.setItem('accessToken', accessToken);
       navigate('/products');
+    } catch (error) {
+      setLoginError(true);
     }
   };
   return (
