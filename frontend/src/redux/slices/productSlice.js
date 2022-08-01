@@ -7,7 +7,7 @@ import {
   updateProduct,
 } from '../async_actions/productActions';
 
-const initialState = {
+export const initialState = {
   products: [],
   page: 1,
   sortParam: 'fabDate',
