@@ -1,3 +1,10 @@
+import { rest } from 'msw';
+import { BASE_URL } from '../api';
+import products from '../mocks/mockResponses';
+import server from '../mocks/server';
+import {
+  changeOrderParamAndUpdate, changePageAndUpdate, changeSortParamAndUpdate, getProductsPerPage,
+} from './async_actions/productActions';
 import productReducer, {
   changeFormState,
   changeOrderParam,
@@ -9,7 +16,7 @@ import productReducer, {
 import store from './store';
 
 describe('Test manager slice', () => {
-  const state = store.getState().product;
+  const state = { ...store.getState().product };
   it('Should return the initial values', () => {
     expect(state).toEqual(initialState);
   });
@@ -52,5 +59,69 @@ describe('Test manager slice', () => {
     const updatedState = productReducer(state, changeOrderParam(mockOrderParam));
 
     expect(updatedState.orderParam).toBe(mockOrderParam);
+  });
+
+  it('Should getProducts async action', async () => {
+    const mockUserParams = { page: 1, sortParam: 'fabDate', orderParam: 'asc' };
+    const result = await store.dispatch(getProductsPerPage(mockUserParams));
+    const mockProducts = result.payload;
+
+    expect(result.type).toBe('product/getProductsPerPage/fulfilled');
+    expect(mockProducts.data).toEqual(products);
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.products).toEqual(products);
+  });
+
+  it('Should getProducts reject async action case', async () => {
+    server.resetHandlers(
+      rest.get(`${BASE_URL}/products`, (req, res, ctx) => res(ctx.status(500))),
+    );
+
+    const mockUserParams = { page: 1, sortParam: 'fabDate', orderParam: 'asc' };
+    const result = await store.dispatch(getProductsPerPage(mockUserParams));
+
+    expect(result.type).toBe('product/getProductsPerPage/rejected');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.loadingProducts).toBeFalsy();
+  });
+
+  it('Should changePageAndUpdate async action case', async () => {
+    const mockCounter = 1;
+    const result = await store.dispatch(changePageAndUpdate(mockCounter));
+
+    expect(result.type).toBe('product/changePageAndUpdate/fulfilled');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.page).toBe(mockCounter + 1);
+    expect(updatedState.products).toEqual(products);
+  });
+
+  it('Should changeSortParamAndUpdate async action case', async () => {
+    const mockParam = 'expDate';
+    const result = await store.dispatch(changeSortParamAndUpdate(mockParam));
+
+    expect(result.type).toBe('product/changeSortParamAndUpdate/fulfilled');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.sortParam).toBe(mockParam);
+    expect(updatedState.products).toEqual(products);
+  });
+
+  it('Should changeOrderParamAndUpdate async action case', async () => {
+    const mockOrder = 'desc';
+    const result = await store.dispatch(changeOrderParamAndUpdate(mockOrder));
+
+    expect(result.type).toBe('product/changeOrderParamAndUpdate/fulfilled');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.orderParam).toBe(mockOrder);
+    expect(updatedState.products).toEqual(products);
   });
 });
