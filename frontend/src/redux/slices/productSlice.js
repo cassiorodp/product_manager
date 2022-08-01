@@ -1,10 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import { getProductsPerPage } from '../async_actions/productActions';
+import { getProductsPerPage, postProduct } from '../async_actions/productActions';
 
 const initialState = {
   products: [],
   page: 1,
+  sortParam: 'fabDate',
   formState: false,
   userAction: '',
   totalCount: 0,
@@ -38,6 +39,15 @@ export const productSlice = createSlice({
       state.loadingProducts = true;
     });
     builder.addCase(getProductsPerPage.rejected, (state) => {
+      state.loadingProducts = false;
+    });
+    builder.addCase(postProduct.fulfilled, (state) => {
+      state.loadingProducts = false;
+    });
+    builder.addCase(postProduct.pending, (state) => {
+      state.loadingProducts = true;
+    });
+    builder.addCase(postProduct.rejected, (state) => {
       state.loadingProducts = false;
     });
   },
