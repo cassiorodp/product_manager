@@ -3,7 +3,13 @@ import { BASE_URL } from '../api';
 import products from '../mocks/mockResponses';
 import server from '../mocks/server';
 import {
-  changeOrderParamAndUpdate, changePageAndUpdate, changeSortParamAndUpdate, deleteProduct, getProductsPerPage, postProduct, updateProduct,
+  changeOrderParamAndUpdate,
+  changePageAndUpdate,
+  changeSortParamAndUpdate,
+  deleteProduct,
+  getProductsPerPage,
+  postProduct,
+  updateProduct,
 } from './async_actions/productActions';
 import productReducer, {
   changeFormState,
@@ -56,7 +62,10 @@ describe('Test manager slice', () => {
   it('Should change orderParam', () => {
     const mockOrderParam = 'desc';
 
-    const updatedState = productReducer(state, changeOrderParam(mockOrderParam));
+    const updatedState = productReducer(
+      state,
+      changeOrderParam(mockOrderParam),
+    );
 
     expect(updatedState.orderParam).toBe(mockOrderParam);
   });
