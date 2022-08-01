@@ -11,10 +11,15 @@ const postLogin = async (data) => {
   }
 };
 
-const getProducts = async (page = 1, sortParam = 'fabDate') => {
+const getProducts = async (page, sortParam) => {
   try {
-    const response = await axios.get(`${BASE_URL}/products?_page=${page}&_sort=${sortParam}`);
-    return response.data;
+    const response = await axios.get(
+      `${BASE_URL}/products?_page=${page}&_sort=${sortParam}`,
+    );
+    return {
+      data: response.data,
+      totalCount: response.headers['x-total-count'],
+    };
   } catch (error) {
     return null;
   }
