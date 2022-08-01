@@ -4,6 +4,7 @@ import {
   deleteProduct,
   getProductsPerPage,
   postProduct,
+  updateProduct,
 } from '../async_actions/productActions';
 
 const initialState = {
@@ -61,6 +62,15 @@ export const productSlice = createSlice({
       state.loadingProducts = true;
     });
     builder.addCase(deleteProduct.rejected, (state) => {
+      state.loadingProducts = false;
+    });
+    builder.addCase(updateProduct.fulfilled, (state) => {
+      state.loadingProducts = false;
+    });
+    builder.addCase(updateProduct.pending, (state) => {
+      state.loadingProducts = true;
+    });
+    builder.addCase(updateProduct.rejected, (state) => {
       state.loadingProducts = false;
     });
   },
