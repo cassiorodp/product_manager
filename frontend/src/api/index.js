@@ -38,20 +38,20 @@ const postProduct = async (productJson) => {
     return response;
   } catch (error) {
     console.log(error);
-    return null;
+    throw new Error('postProduct has failed');
   }
 };
 
 const updateProduct = async (productId, productAttrs) => {
   try {
     const accessToken = JSON.parse(localStorage.getItem('accessToken'));
-    const response = await axios.put(`${BASE_URL}/products${productId}`, productAttrs, {
+    const response = await axios.put(`${BASE_URL}/products/${productId}`, productAttrs, {
       headers: { authorization: accessToken },
     });
     return response;
   } catch (error) {
     console.log(error);
-    return null;
+    throw new Error('updateProduct has failed');
   }
 };
 
@@ -64,7 +64,7 @@ const deleteProduct = async (productId) => {
     return response;
   } catch (error) {
     console.log(error);
-    return null;
+    throw new Error('deleteProduct has failed');
   }
 };
 

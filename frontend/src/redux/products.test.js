@@ -3,7 +3,7 @@ import { BASE_URL } from '../api';
 import products from '../mocks/mockResponses';
 import server from '../mocks/server';
 import {
-  changeOrderParamAndUpdate, changePageAndUpdate, changeSortParamAndUpdate, getProductsPerPage,
+  changeOrderParamAndUpdate, changePageAndUpdate, changeSortParamAndUpdate, deleteProduct, getProductsPerPage, postProduct, updateProduct,
 } from './async_actions/productActions';
 import productReducer, {
   changeFormState,
@@ -123,5 +123,76 @@ describe('Test manager slice', () => {
 
     expect(updatedState.orderParam).toBe(mockOrder);
     expect(updatedState.products).toEqual(products);
+  });
+
+  it('Should postProduct async action', async () => {
+    const mockProduct = products[0];
+    const result = await store.dispatch(postProduct(mockProduct));
+
+    expect(result.type).toBe('product/postProduct/fulfilled');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.loadingProducts).toBeFalsy();
+  });
+
+  it('Should postProduct reject async action case', async () => {
+    server.resetHandlers(
+      rest.post(`${BASE_URL}/products`, (req, res, ctx) => res(ctx.status(500))),
+    );
+    const mockProduct = products[0];
+    const result = await store.dispatch(postProduct(mockProduct));
+
+    expect(result.type).toBe('product/postProduct/rejected');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.loadingProducts).toBeFalsy();
+  });
+
+  it('Should updateProduct async action', async () => {
+    const result = await store.dispatch(updateProduct(products[0]));
+
+    expect(result.type).toBe('product/updateProduct/fulfilled');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.loadingProducts).toBeFalsy();
+  });
+
+  it('Should updateProduct reject async action case', async () => {
+    server.resetHandlers(
+      rest.put(`${BASE_URL}/products/:id`, (req, res, ctx) => res(ctx.status(500))),
+    );
+    const result = await store.dispatch(updateProduct(products[0]));
+
+    expect(result.type).toBe('product/updateProduct/rejected');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.loadingProducts).toBeFalsy();
+  });
+
+  it('Should deleteProduct async action', async () => {
+    const result = await store.dispatch(deleteProduct(0));
+
+    expect(result.type).toBe('product/deleteProduct/fulfilled');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.loadingProducts).toBeFalsy();
+  });
+
+  it('Should deleteProduct reject async action case', async () => {
+    server.resetHandlers(
+      rest.delete(`${BASE_URL}/products/:id`, (req, res, ctx) => res(ctx.status(500))),
+    );
+    const result = await store.dispatch(deleteProduct(0));
+
+    expect(result.type).toBe('product/deleteProduct/rejected');
+
+    const updatedState = store.getState().product;
+
+    expect(updatedState.loadingProducts).toBeFalsy();
   });
 });
