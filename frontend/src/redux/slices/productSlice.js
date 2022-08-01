@@ -11,6 +11,7 @@ const initialState = {
   products: [],
   page: 1,
   sortParam: 'fabDate',
+  orderParam: 'asc',
   formState: false,
   userAction: '',
   totalCount: 0,
@@ -34,6 +35,9 @@ export const productSlice = createSlice({
     },
     changeSortParam: (state, action) => {
       state.sortParam = action.payload;
+    },
+    changeOrderParam: (state, action) => {
+      state.orderParam = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -79,6 +83,12 @@ export const productSlice = createSlice({
   },
 });
 
-export const { changePage, changeFormState, changeUserAction } = productSlice.actions;
+export const {
+  changePage,
+  changeFormState,
+  changeUserAction,
+  changeSortParam,
+  changeOrderParam,
+} = productSlice.actions;
 
 export default productSlice.reducer;
