@@ -14,4 +14,18 @@ export const getProductsPerPage = createAsyncThunk(
   },
 );
 
+export const postProduct = createAsyncThunk(
+  'product/postProduct',
+  async (productJson, { rejectWithValue, dispatch, getState }) => {
+    try {
+      const data = await api.postProduct(productJson);
+      const { page, sortParam } = getState().product;
+      dispatch(getProductsPerPage({ page, sortParam }));
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
 export default getProductsPerPage;
