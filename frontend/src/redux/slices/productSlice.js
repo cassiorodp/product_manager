@@ -91,4 +91,6 @@ export const {
   changeOrderParam,
 } = productSlice.actions;
 
+export const selectProduct = (state) => state.product;
+
 export default productSlice.reducer;
