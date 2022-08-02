@@ -37,7 +37,7 @@ describe('Test manager slice', () => {
 
   it('Should change FormState', () => {
     const mockStateAdd = 'add';
-    const mockStateEdit = 'edit';
+    const mockStateEdit = { type: 'edit' };
     const mockStateClose = '';
 
     const updatedStateAdd = productReducer(state, changeFormState(mockStateAdd));

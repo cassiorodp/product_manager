@@ -34,12 +34,13 @@ export const productSlice = createSlice({
       if (action.payload === 'add') {
         state.formState = true;
         state.selectedProduct = { perishable: false };
-      } else if (action.payload === 'edit') {
+      } else if (action.payload.type === 'edit') {
         state.formState = true;
-        state.selectedProduct = state.products.find(
-          ({ id }) => id === action.payload.id,
-        );
-      } else state.formState = false;
+        state.selectedProduct = action.payload.id;
+      } else {
+        state.formState = false;
+        state.selectedProduct = action.payload.id;
+      }
     },
     changeUserAction: (state, action) => {
       state.userAction = action.payload;
