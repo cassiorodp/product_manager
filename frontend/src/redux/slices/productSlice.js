@@ -33,7 +33,7 @@ export const productSlice = createSlice({
     changeFormState: (state, action) => {
       if (action.payload === 'add') {
         state.formState = true;
-        state.selectedProduct = { perishable: false };
+        state.selectedProduct = '';
       } else if (action.payload.type === 'edit') {
         state.formState = true;
         state.selectedProduct = action.payload.id;
