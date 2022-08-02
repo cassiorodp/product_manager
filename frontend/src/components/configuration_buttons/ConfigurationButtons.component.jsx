@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { MdAdd } from 'react-icons/md';
 import { changeOrderParamAndUpdate, changeSortParamAndUpdate } from '../../redux/async_actions/productActions';
 import { changeFormState, selectProduct } from '../../redux/slices/productSlice';
-import { SelectLabel, Select, AddButton } from './configurationButton.style';
+import {
+  SelectLabel, Select, AddButton, ConfigurationContainer,
+} from './configurationButton.style';
 
 export default function ConfigurationButtons() {
   const { sortParam, orderParam } = useSelector(selectProduct);
   const dispatch = useDispatch();
   return (
-    <>
+    <ConfigurationContainer>
       <SelectLabel htmlFor="sortParams">
         Sort By:
         <Select
@@ -38,9 +40,9 @@ export default function ConfigurationButtons() {
         </Select>
       </SelectLabel>
       <AddButton onClick={() => dispatch(changeFormState('add'))}>
-        <MdAdd />
+        <MdAdd size="2rem" />
         Add Product
       </AddButton>
-    </>
+    </ConfigurationContainer>
   );
 }
