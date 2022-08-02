@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiCheck, FiX } from 'react-icons/fi';
 import { BsFillTrashFill } from 'react-icons/bs';
 import { BiEdit } from 'react-icons/bi';
+import { useDispatch } from 'react-redux';
 import mixins from '../../mixins';
 import { ActionButton, ButtonCell, Table } from './productsTable.style';
+import { changeFormState } from '../../redux/slices/productSlice';
+import ConfirmationModal from '../confirmation_modal/ConfirmationModal.component';
 
 const { getFormatedDate, getFormatedCurrency } = mixins;
 
 export default function ProductsTable({ products }) {
+  const dispatch = useDispatch();
+  const [openModal, setOpenModal] = useState(false);
   return (
     <Table>
       <thead>
@@ -26,16 +31,38 @@ export default function ProductsTable({ products }) {
             <tr key={product.id}>
               <td>{product.name}</td>
               <td>{getFormatedDate(product.fabDate)}</td>
-              <td>{product.perishable ? <FiCheck /> : <FiX />}</td>
+              <td>
+                {product.perishable ? (
+                  <FiCheck size="2rem" />
+                ) : (
+                  <FiX size="2rem" />
+                )}
+              </td>
               <td>{getFormatedDate(product.expDate)}</td>
               <td>{`R$ ${getFormatedCurrency(product.price)}`}</td>
               <ButtonCell>
-                <ActionButton edit><BiEdit /></ActionButton>
-                <ActionButton delete><BsFillTrashFill /></ActionButton>
+                <ActionButton
+                  onClick={() => dispatch(changeFormState({ type: 'edit', id: product.id }))}
+                  edit
+                >
+                  <BiEdit />
+                </ActionButton>
+                <ActionButton
+                  onClick={() => {
+                    dispatch(
+                      changeFormState({ type: 'delete', id: product.id }),
+                    );
+                    setOpenModal(true);
+                  }}
+                  delete
+                >
+                  <BsFillTrashFill />
+                </ActionButton>
               </ButtonCell>
             </tr>
           ))}
       </tbody>
+      <ConfirmationModal open={openModal} onClose={() => setOpenModal(false)} />
     </Table>
   );
 }

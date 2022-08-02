@@ -15,13 +15,13 @@ export default function PaginateButtons() {
         onClick={() => dispatch(changePageAndUpdate(-1))}
       >
         <AiOutlineArrowLeft />
-        Previous
+        Previous Page
       </PaginateButton>
       <PaginateButton
         disabled={page === lastPage}
         onClick={() => dispatch(changePageAndUpdate(1))}
       >
-        Next
+        Next Page
         <AiOutlineArrowRight />
       </PaginateButton>
     </ButtonGroup>
