@@ -9,7 +9,7 @@ export const PaginateButton = styled.button.attrs(() => ({
   padding: 1rem;
   display: flex;
   font-size: 1.6rem;
-  width: 15rem;
+  width: 16rem;
   align-items: center;
   justify-content: center;
   gap: 1rem;

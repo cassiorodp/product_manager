@@ -31,7 +31,8 @@ export const AddButton = styled.button`
   align-items: center;
   justify-content: space-around;
   transition: all .8s;
-  width: 10%;
+  width: 12%;
+  max-width: 13rem;
   :hover {
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.colorPrimaryDark};

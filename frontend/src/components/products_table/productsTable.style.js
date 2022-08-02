@@ -20,12 +20,16 @@ export const Table = styled.table`
   tr:nth-child(even) {
     background-color: ${(props) => props.theme.colors.pureWhite};
   }
+  td {
+    width: 15%;
+  }
 `;
 
 export const ButtonCell = styled.td`
   display: flex;
   justify-content: space-around;
   && {
+    width: 100%;
     border-left: 0px;
   }
 `;
