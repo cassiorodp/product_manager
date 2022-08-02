@@ -4,6 +4,17 @@ const getFormatedDate = (unformatedDate) => {
   return formatedDate;
 };
 
+const getFormatedCurrency = (unformatedCurrency) => {
+  const stringToNumber = parseFloat(unformatedCurrency);
+  return stringToNumber.toLocaleString('pt-br', {
+    // style: "currency",
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 3,
+  });
+};
+
 export default {
   getFormatedDate,
+  getFormatedCurrency,
 };
