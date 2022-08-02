@@ -18,6 +18,9 @@ export const initialState = {
   lastPage: 0,
   limit: 10,
   loadingProducts: false,
+  selectedProduct: {
+    perishable: false,
+  },
 };
 
 export const productSlice = createSlice({
@@ -28,7 +31,15 @@ export const productSlice = createSlice({
       state.page += action.payload;
     },
     changeFormState: (state, action) => {
-      state.formState = action.payload;
+      if (action.payload === 'add') {
+        state.formState = true;
+        state.selectedProduct = { perishable: false };
+      } else if (action.payload === 'edit') {
+        state.formState = true;
+        state.selectedProduct = state.products.find(
+          ({ id }) => id === action.payload.id,
+        );
+      } else state.formState = false;
     },
     changeUserAction: (state, action) => {
       state.userAction = action.payload;
