@@ -8,7 +8,11 @@ export const PaginateButton = styled.button.attrs(() => ({
   background-color: ${(props) => props.theme.colors.colorSecondary};
   padding: 1rem;
   display: flex;
+  font-size: 1.6rem;
+  width: 15rem;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
   transition: all .8s;
   :hover {
     cursor: pointer;
@@ -22,6 +26,6 @@ export const PaginateButton = styled.button.attrs(() => ({
 
 export const ButtonGroup = styled.div`
   display: flex;
-  width: 80%;
-  background-color: orangered;
+  justify-content: space-around;
+  width: 100%;
 `;

@@ -4,6 +4,7 @@ export const Table = styled.table`
   font-size: 1.6rem;
   width: 100%;
   border-collapse: collapse;
+  margin: 1rem 0;
   td,
   th {
     border-left: 1px solid ${(props) => props.theme.colors.background1Darker};
