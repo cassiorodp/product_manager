@@ -16,7 +16,7 @@ const getProducts = async (page, sortParam, orderParam) => {
   try {
     const accessToken = (localStorage.getItem('accessToken'));
     const response = await axios.get(
-      `${BASE_URL}/products?_page=${page}&_sort=${sortParam}&_order${orderParam}`,
+      `${BASE_URL}/products?_page=${page}&_sort=${sortParam}&_order=${orderParam}`,
       { headers: { authorization: accessToken } },
     );
     return {
