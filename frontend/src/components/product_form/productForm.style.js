@@ -3,20 +3,15 @@ import styled from 'styled-components';
 export const FormContainer = styled.form`
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
+  /* align-items: center; */
   background-color: #c2c2c2c2;
   border-radius: 8px;
   margin: 1rem 0;
   padding: 25px;
   width: 45%;
   min-width: 80rem;
-  height: 35rem;
+  height: 36rem;
   font-size: 1.6rem;
-
-  h2 {
-    font-size: 2rem;
-    text-align: center;
-  }
 
   button {
     border: none;
@@ -26,11 +21,19 @@ export const FormContainer = styled.form`
     border-radius: 8px;
     font-size: inherit;
     transition: all 0.5s;
+    max-width: 10rem;
+    align-self: center;
   }
 
   button:hover {
     background-color: ${(props) => props.theme.colors.colorPrimaryDark};
   }
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  height: 80%;
 `;
 
 export const ProductLabel = styled.label`
@@ -52,7 +55,7 @@ export const ProductInput = styled.input`
 
 export const RadioGroup = styled.div`
   display: flex;
-  min-width: 10rem;
+  width: 10rem;
   justify-content: space-between;
 `;
 
