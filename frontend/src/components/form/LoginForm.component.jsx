@@ -5,9 +5,9 @@ import {
   FormContainer,
   LoginInput,
   ErrorFeedBack,
-} from './form.component.style';
+} from './loginForm.component.style';
 
-export default function Form({ onSubmit, loginError }) {
+export default function LoginForm({ onSubmit, loginError }) {
   const {
     register,
     formState: { errors },

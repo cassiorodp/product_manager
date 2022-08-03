@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storeSvg from '../../assets/store.svg';
-import Form from '../../components/form/form.component';
+import Form from '../../components/form/LoginForm.component';
 import LoginContainer from './login.styles';
 import api from '../../api';
 

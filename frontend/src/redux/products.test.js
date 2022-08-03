@@ -36,11 +36,18 @@ describe('Test manager slice', () => {
   });
 
   it('Should change FormState', () => {
-    const mockState = true;
+    const mockStateAdd = 'add';
+    const mockStateEdit = { type: 'edit' };
+    const mockStateClose = '';
 
-    const updatedState = productReducer(state, changeFormState(mockState));
+    const updatedStateAdd = productReducer(state, changeFormState(mockStateAdd));
+    expect(updatedStateAdd.formState).toBe(true);
 
-    expect(updatedState.formState).toBe(mockState);
+    const updatedStateEdit = productReducer(state, changeFormState(mockStateEdit));
+    expect(updatedStateEdit.formState).toBe(true);
+
+    const updatedStateClose = productReducer(state, changeFormState(mockStateClose));
+    expect(updatedStateClose.formState).toBe(false);
   });
 
   it('Should change userAction', () => {
