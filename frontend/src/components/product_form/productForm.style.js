@@ -1,17 +1,27 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+`;
 
 export const FormContainer = styled.form`
   display: flex;
   flex-flow: column wrap;
-  /* align-items: center; */
+  align-items: center;
   background-color: #c2c2c2c2;
   border-radius: 8px;
   margin: 1rem 0;
-  padding: 25px;
-  width: 45%;
+  padding: 1rem 1.5rem;
   min-width: 80rem;
-  height: 36rem;
+  height: 40rem;
   font-size: 1.6rem;
+  animation: ${fadeIn} ease 1s;
 
   button {
     border: none;
@@ -21,7 +31,7 @@ export const FormContainer = styled.form`
     border-radius: 8px;
     font-size: inherit;
     transition: all 0.5s;
-    max-width: 10rem;
+    max-width: 17rem;
     align-self: center;
   }
 
@@ -33,15 +43,24 @@ export const FormContainer = styled.form`
 export const InputContainer = styled.div`
   display: flex;
   flex-flow: column wrap;
+  align-items: center;
   height: 80%;
+  width: 100%;
 `;
 
 export const ProductLabel = styled.label`
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: ${(props) => (props.radio ? 'row' : 'column')};
   align-items: ${(props) => (props.radio ? 'center' : 'flex-start')};
   justify-content: flex-start;
+`;
+
+export const ErrorFeedBack = styled.p`
+  color: ${(props) => props.theme.colors.colorError};
+  font-size: 1.1rem;
+  max-width: 20rem;
 `;
 
 export const ProductInput = styled.input`
