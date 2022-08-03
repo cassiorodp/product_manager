@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '../../test-utils/testing-library-utils';
-import Form from './form.component';
+import Form from './LoginForm.component';
 
 describe('Form component', () => {
   it('should have working inputs', async () => {
