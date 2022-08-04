@@ -8,7 +8,7 @@
   <p align="center">
     Online store manager for your confort!
     <br />
-    <a href="https://jose-delivery-app.vercel.app/login" target="_blank">Source</a>
+    <a href="https://product-manager-cassiorodp.vercel.app/login" target="_blank">Source</a>
     ·
     <a href="https://github.com/cassiorodp/product_manager/issues" target="_blank">Report Bug</a>
   </p>
