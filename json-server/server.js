@@ -6,6 +6,8 @@ const {
   verifyToken,
 } = require('./jwtUtils/index.js');
 
+const PORT = process.env.PORT || 3001
+
 const server = jsonServer.create();
 const router = jsonServer.router('./data/db.json');
 server.use(jsonServer.defaults());
@@ -41,6 +43,6 @@ server.use(/^(?!.*\/auth|.*\/users).*$/, (req, res, next) => {
 
 server.use(router);
 
-server.listen(3001, () => {
+server.listen(PORT, () => {
   console.log('Run Auth API Server');
 });
