@@ -29,9 +29,9 @@ export const productSlice = createSlice({
       state.page += action.payload;
     },
     changeFormState: (state, action) => {
-      if (action.payload === 'add') {
+      if (action.payload.type === 'add') {
         state.formState = true;
-        state.selectedProductId = '';
+        state.selectedProductId = action.payload.id;
         state.userAction = 'add';
       } else if (action.payload.type === 'edit') {
         state.formState = true;
