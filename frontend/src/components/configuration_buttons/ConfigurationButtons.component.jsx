@@ -39,7 +39,7 @@ export default function ConfigurationButtons() {
           <option value="desc">Descending</option>
         </Select>
       </SelectLabel>
-      <AddButton onClick={() => dispatch(changeFormState('add'))}>
+      <AddButton onClick={() => dispatch(changeFormState({ type: 'add', id: '' }))}>
         <MdAdd size="2rem" />
         Add Product
       </AddButton>
