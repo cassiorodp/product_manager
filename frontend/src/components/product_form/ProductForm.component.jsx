@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectProduct } from '../../redux/slices/productSlice';
+import { selectProduct, changeFormState } from '../../redux/slices/productSlice';
 import {
   ErrorFeedBack,
   FormContainer,
@@ -55,6 +55,7 @@ export default function ProductForm() {
     } else {
       dispatch(updateProduct(submitData));
     }
+    dispatch(changeFormState({ id: '' }));
   };
 
   useEffect(() => {
