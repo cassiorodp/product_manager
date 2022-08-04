@@ -105,7 +105,7 @@ Besides, if you want to contribuite later, it's good to have some code editor li
 
    ```
    email="admin@email.com"
-   password="fulana@123"
+   password="admin123"
    ```
 
 <h2 id="contribution">🏗 Contribution</h2>
