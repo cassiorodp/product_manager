@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/cassiorodp/delivery-app" target="_blank">
+  <a href="https://github.com/cassiorodp/product_manager/" target="_blank">
     <img src="./frontend/src/assets/store.gif" alt="Logo" width="120" height="120">
   </a>
 
