@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+export const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/';
 
 const postLogin = async (data) => {
   try {
-    const response = await axios.post(`${BASE_URL}/auth/login`, data);
+    const response = await axios.post(`${BASE_URL}auth/login`, data);
     return response.data.accessToken;
   } catch (error) {
     console.log(error);
@@ -16,7 +16,7 @@ const getProducts = async (page, sortParam, orderParam) => {
   try {
     const accessToken = (localStorage.getItem('accessToken'));
     const response = await axios.get(
-      `${BASE_URL}/products?_page=${page}&_sort=${sortParam}&_order=${orderParam}`,
+      `${BASE_URL}products?_page=${page}&_sort=${sortParam}&_order=${orderParam}`,
       { headers: { authorization: accessToken } },
     );
     return {
@@ -32,7 +32,7 @@ const getProducts = async (page, sortParam, orderParam) => {
 const postProduct = async (productJson) => {
   try {
     const accessToken = (localStorage.getItem('accessToken'));
-    const response = await axios.post(`${BASE_URL}/products`, productJson, {
+    const response = await axios.post(`${BASE_URL}products`, productJson, {
       headers: { authorization: accessToken },
     });
     return response;
@@ -45,7 +45,7 @@ const postProduct = async (productJson) => {
 const updateProduct = async (productId, productAttrs) => {
   try {
     const accessToken = (localStorage.getItem('accessToken'));
-    const response = await axios.put(`${BASE_URL}/products/${productId}`, productAttrs, {
+    const response = await axios.put(`${BASE_URL}products/${productId}`, productAttrs, {
       headers: { authorization: accessToken },
     });
     return response;
@@ -58,7 +58,7 @@ const updateProduct = async (productId, productAttrs) => {
 const deleteProduct = async (productId) => {
   try {
     const accessToken = (localStorage.getItem('accessToken'));
-    const response = await axios.delete(`${BASE_URL}/products/${productId}`, {
+    const response = await axios.delete(`${BASE_URL}products/${productId}`, {
       headers: { authorization: accessToken },
     });
     return response;
