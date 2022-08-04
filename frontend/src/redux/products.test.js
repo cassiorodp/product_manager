@@ -16,7 +16,6 @@ import productReducer, {
   changeOrderParam,
   changePage,
   changeSortParam,
-  changeUserAction,
   initialState,
 } from './slices/productSlice';
 import store from './store';
@@ -36,9 +35,9 @@ describe('Test manager slice', () => {
   });
 
   it('Should change FormState', () => {
-    const mockStateAdd = 'add';
-    const mockStateEdit = { type: 'edit' };
-    const mockStateClose = '';
+    const mockStateAdd = { type: 'add', id: '' };
+    const mockStateEdit = { type: 'edit', id: 1 };
+    const mockStateClose = { id: '' };
 
     const updatedStateAdd = productReducer(state, changeFormState(mockStateAdd));
     expect(updatedStateAdd.formState).toBe(true);
@@ -84,7 +83,7 @@ describe('Test manager slice', () => {
 
   it('Should getProducts reject async action case', async () => {
     server.resetHandlers(
-      rest.get(`${BASE_URL}/products`, (req, res, ctx) => res(ctx.status(500))),
+      rest.get(`${BASE_URL}products`, (req, res, ctx) => res(ctx.status(500))),
     );
 
     const mockUserParams = { page: 1, sortParam: 'fabDate', orderParam: 'asc' };
@@ -170,7 +169,7 @@ describe('Test manager slice', () => {
 
   it('Should updateProduct reject async action case', async () => {
     server.resetHandlers(
-      rest.put(`${BASE_URL}/products/:id`, (req, res, ctx) => res(ctx.status(500))),
+      rest.put(`${BASE_URL}products/:id`, (req, res, ctx) => res(ctx.status(500))),
     );
     const result = await store.dispatch(updateProduct(products[0]));
 
