@@ -18,9 +18,7 @@ export const initialState = {
   lastPage: 0,
   limit: 10,
   loadingProducts: false,
-  selectedProduct: {
-    perishable: false,
-  },
+  selectedProductId: '',
 };
 
 export const productSlice = createSlice({
@@ -33,17 +31,16 @@ export const productSlice = createSlice({
     changeFormState: (state, action) => {
       if (action.payload === 'add') {
         state.formState = true;
-        state.selectedProduct = '';
+        state.selectedProductId = '';
+        state.userAction = 'add';
       } else if (action.payload.type === 'edit') {
         state.formState = true;
-        state.selectedProduct = action.payload.id;
+        state.selectedProductId = action.payload.id;
+        state.userAction = 'edit';
       } else {
         state.formState = false;
-        state.selectedProduct = action.payload.id;
+        state.selectedProductId = action.payload.id;
       }
-    },
-    changeUserAction: (state, action) => {
-      state.userAction = action.payload;
     },
     changeSortParam: (state, action) => {
       state.sortParam = action.payload;

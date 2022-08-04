@@ -8,9 +8,9 @@ export default function Main() {
   const accessToken = localStorage.getItem('accessToken');
   return (
     <MainContainer>
+      {!accessToken && <Navigate to="/" />}
       <Heading>Products</Heading>
       <ProductForm />
-      {!accessToken && <Navigate to="/" />}
       <TableContainer />
     </MainContainer>
   );

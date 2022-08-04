@@ -50,14 +50,6 @@ describe('Test manager slice', () => {
     expect(updatedStateClose.formState).toBe(false);
   });
 
-  it('Should change userAction', () => {
-    const mockAction = 'update';
-
-    const updatedState = productReducer(state, changeUserAction(mockAction));
-
-    expect(updatedState.userAction).toBe(mockAction);
-  });
-
   it('Should change sortParam', () => {
     const mockSortParam = 'expDate';
 
